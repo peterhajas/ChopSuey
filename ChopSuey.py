@@ -2,6 +2,8 @@
 #
 #A utility for crazy people with lots of monitors and no good solutions for chopping up wallpapers for them
 #Requires the Python Image Library (http://www.pythonware.com/products/pil/) to do its awesomeness
+#
+#See the LICENSE file for more copyright information
 
 import os, sys
 import Image
