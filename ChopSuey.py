@@ -1,7 +1,7 @@
-#ChopSuey, Copyright 2010 Peter Hajas
+# ChopSuey, Copyright 2010 Peter Hajas
 #
-#A utility for crazy people with lots of monitors and no good solutions for chopping up wallpapers for them
-#Requires the Python Image Library (http://www.pythonware.com/products/pil/) to do its awesomeness
+# A utility for crazy people with lots of monitors and no good solutions for chopping up wallpapers for them
+# Requires the Python Image Library (http://www.pythonware.com/products/pil/) to do its awesomeness
 
 import os, sys
 import Image
@@ -16,11 +16,11 @@ class Monitor:
 print "ChopSuey, not at all inspired by that one song."
 print sys.argv[1]
 
-#Create the image object and related variables
+# Create the image object and related variables
 image = Image.open(sys.argv[1])
-size = image.size #size is a 2-element array of the width and height
+size = image.size # size is a 2-element array of the width and height
 
-#Aha! Now we have to ask the user some stuff about what kind of monitors they have
+# Aha! Now we have to ask the user some stuff about what kind of monitors they have
 print "We're going to ask you some questions about your monitors."
 print "At any time, type 'done' and we'll move on!"
 monitorList = []
@@ -31,7 +31,7 @@ while True:
 		print "Awesome! You told ChopSuey about %d monitor(s)." % len(monitorList)
 		break
 	if s == 'yes':
-		#Create a new monitor object and add it to our list
+		# Create a new monitor object and add it to our list
 		pixelWidth = raw_input('How many pixels wide is your display (e.g. 1920)? > ')
 		pixelHeight = raw_input('How many pixels tall is your display (e.g. 1080)? > ')
 		inchScreenWidth = raw_input('How many inches wide is the screen part of your display (e.g. 20)? > ')
