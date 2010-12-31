@@ -8,12 +8,15 @@ import os, sys
 import Image
 
 class Monitor:
-	def __init__(self,pixelWidth, pixelHeight, inchScreenWidth, inchScreenHeight, name):
-		self.pW = pixelWidth
-		self.pH = pixelHeight
+	def __init__(self, inchScreenWidth, inchScreenHeight, name):
 		self.iW = inchScreenWidth
 		self.iH = inchScreenHeight
 		self.n = name
+		self.left = None
+		self.right = None
+		self.up = None
+		self.down = None
+		
 print "ChopSuey, not at all inspired by that one song."
 print sys.argv[1]
 
@@ -26,19 +29,30 @@ print "We're going to ask you some questions about your monitors."
 print "At any time, type 'done' and we'll move on!"
 monitorList = []
 while True:
-	print "Do you have a monitor that you'd like to add? You've told ChopSuey about %d monitors." % len(monitorList)
+	print "Do you have a monitor that you'd like to add? You've told ChopSuey about %d monitor(s)." % len(monitorList)
 	s = raw_input('> ')
 	if s == 'done':
 		print "Awesome! You told ChopSuey about %d monitor(s)." % len(monitorList)
 		break
 	if s == 'yes':
 		# Create a new monitor object and add it to our list
-		pixelWidth = raw_input('How many pixels wide is your display (e.g. 1920)? > ')
-		pixelHeight = raw_input('How many pixels tall is your display (e.g. 1080)? > ')
 		inchScreenWidth = raw_input('How many inches wide is the screen part of your display (e.g. 20)? > ')
 		inchScreenHeight = raw_input('How many inches tall is the screen part of your display (e.g. 12)? > ')
 		name = raw_input('Finally, what would you like to call this display (e.g. Samsung SyncMaster)? > ')
-		newMonitor = Monitor(pixelWidth, pixelHeight, inchScreenWidth, inchScreenHeight, name)
+		newMonitor = Monitor(inchScreenWidth, inchScreenHeight, name)
 		monitorList.append(newMonitor)
 
 print "We're going to take a look now at the borders between monitors"
+n = 0
+for i in monitorList:
+	# Ask left
+	print "Is there a display to the left of %s?" % i.n
+	print "0 - (none)"
+	m = 1
+	for j in monitorList:
+		print "%d - j.n" % m
+		m = m + 1
+	q = int(raw_input('> '))
+	if q == 0:
+		i.left = j
+	
